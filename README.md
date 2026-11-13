@@ -16,9 +16,10 @@ only, so nothing is exposed to the network.
 
 ## Install
 
-Requires 64-bit Windows. Double-click
-`artifacts\InternetUptimeTrackerSetup-2.0.0.msi` and approve the UAC prompt. The
-installer:
+Requires 64-bit Windows. Download
+[`InternetUptimeTrackerSetup-2.0.0.msi`](https://github.com/bzx2022/internet-uptime-dashboard/releases/latest)
+from the latest release, double-click it, and approve the UAC prompt. No .NET
+runtime is needed. The installer:
 
 - installs both services under `C:\Program Files\Internet Uptime Tracker\`,
 - sets both services to start automatically and starts them immediately,
