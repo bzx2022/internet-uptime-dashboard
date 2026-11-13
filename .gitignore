@@ -1,0 +1,11 @@
+# Build output
+bin/
+obj/
+artifacts/
+.data/
+.vs/
+
+# Node leftovers (the app is .NET now)
+node_modules/
+*.log
+.DS_Store

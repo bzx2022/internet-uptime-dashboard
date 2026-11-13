@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/InternetUptimeTracker.Dashboard/InternetUptimeTracker.Dashboard.csproj" />
+    <Project Path="src/InternetUptimeTracker/InternetUptimeTracker.csproj" />
+  </Folder>
+</Solution>

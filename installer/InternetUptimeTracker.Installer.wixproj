@@ -1,0 +1,28 @@
+<Project Sdk="WixToolset.Sdk/7.0.1">
+
+  <PropertyGroup>
+    <!-- WiX v7 requires accepting the OSMF EULA at build time. See https://wixtoolset.org/osmf/. -->
+    <AcceptEula>wix7</AcceptEula>
+    <!-- The published payload is win-x64, so install into C:\Program Files. -->
+    <InstallerPlatform>x64</InstallerPlatform>
+    <!--
+      The desktop/start-menu shortcuts are non-advertised and the component's
+      key path is the installed .url file, so ICE38/43/57 do not apply here.
+    -->
+    <SuppressIces>ICE38;ICE43;ICE57</SuppressIces>
+    <OutputName>InternetUptimeTrackerSetup</OutputName>
+    <OutputType>Package</OutputType>
+    <ProductVersion Condition="'$(ProductVersion)' == ''">2.0.0</ProductVersion>
+    <TrackerPublishDir Condition="'$(TrackerPublishDir)' == ''">$(MSBuildThisFileDirectory)..\artifacts\publish\tracker</TrackerPublishDir>
+    <DashboardPublishDir Condition="'$(DashboardPublishDir)' == ''">$(MSBuildThisFileDirectory)..\artifacts\publish\dashboard</DashboardPublishDir>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DefineConstants>ProductVersion=$(ProductVersion);TrackerPublishDir=$(TrackerPublishDir);DashboardPublishDir=$(DashboardPublishDir)</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixext" Version="7.0.1" />
+  </ItemGroup>
+
+</Project>
