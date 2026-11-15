@@ -448,11 +448,16 @@
     }
 
     if (all.lastOutageMs) {
+      const latest = (data.recent || []).find((outage) => outage.recoveredMs === all.lastOutageMs);
       el.kpiLast.textContent = formatRelative(all.lastOutageMs);
-      el.kpiLastSub.textContent = formatDateTime(all.lastOutageMs);
+      el.kpiLastSub.textContent = latest
+        ? `Lasted ${formatDuration(latest.durationSeconds)}`
+        : formatDateTime(all.lastOutageMs);
+      el.kpiLastSub.title = `Ended ${formatDateTime(all.lastOutageMs)}`;
     } else {
       el.kpiLast.textContent = 'Never';
       el.kpiLastSub.textContent = 'No outages recorded';
+      el.kpiLastSub.title = '';
     }
 
     el.recentCount.textContent = `${fmtInt(all.outageCount)} total`;
